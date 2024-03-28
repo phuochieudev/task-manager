@@ -31,7 +31,7 @@ function Profiles() {
           aria-expanded={open ? 'true' : undefined}
         >
           <Avatar
-            sx={{ width: 32, height: 32 }}
+            sx={{ width: 34, height: 34 }}
             alt="PhuocHieuDev"
             src="https://i.pinimg.com/736x/db/2d/a0/db2da06ee237eff7de3e468edde2bde4.jpg"
           />        </IconButton>
