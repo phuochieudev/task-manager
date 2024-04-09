@@ -19,7 +19,7 @@ export const mockData = {
             boardId: 'board-id-01',
             columnId: 'column-id-01',
             title: 'Title of card 01',
-            description: 'Markdown Syntax (sẽ ở khóa nâng cao nhé)',
+            description: 'phuochieudev',
             cover: 'https://ichef.bbci.co.uk/news/2048/cpsprodpb/3a97/live/0dac61f0-d7a9-11ee-8f28-259790e80bba.jpg',
             memberIds: ['test-user-id-01'],
             comments: ['test comment 01', 'test comment 02'],
@@ -39,7 +39,13 @@ export const mockData = {
         title: 'Inprogress Column 02',
         cardOrderIds: ['card-id-08', 'card-id-09', 'card-id-10'],
         cards: [
-          { _id: 'card-id-08', boardId: 'board-id-01', columnId: 'column-id-02', title: 'Title of card 08', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
+          { _id: 'card-id-08',
+            boardId: 'board-id-01',
+            columnId: 'column-id-02',
+            title: 'Title of card 08',
+            description: null,
+            cover: 'https://images.ps-aws.com/c?url=https%3A%2F%2Fimages.teamtalk.com%2Fcontent%2Fuploads%2F2024%2F02%2F06153923%2FEnzo-Fernandez-is-considering-a-shock-move-away-from-Chelsea.jpg',
+            memberIds: [], comments: [], attachments: [] },
           { _id: 'card-id-09', boardId: 'board-id-01', columnId: 'column-id-02', title: 'Title of card 09', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
           { _id: 'card-id-10', boardId: 'board-id-01', columnId: 'column-id-02', title: 'Title of card 10', description: null, cover: null, memberIds: [], comments: [], attachments: [] }
         ]
@@ -50,7 +56,13 @@ export const mockData = {
         title: 'Done Column 03',
         cardOrderIds: ['card-id-11', 'card-id-12', 'card-id-13'],
         cards: [
-          { _id: 'card-id-11', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 11', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
+          { _id: 'card-id-11',
+            boardId: 'board-id-01',
+            columnId: 'column-id-03',
+            title: 'Title of card 11',
+            description: null,
+            cover: 'https://media.bongda.com.vn/files/tung.nguyen/2024/02/03/4714991-1002.jpg',
+            memberIds: [], comments: [], attachments: [] },
           { _id: 'card-id-12', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 12', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
           { _id: 'card-id-13', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 13', description: null, cover: null, memberIds: [], comments: [], attachments: [] }
         ]
