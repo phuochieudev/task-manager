@@ -9,7 +9,8 @@ import {
   useSensor,
   useSensors,
   DragOverlay,
-  defaultDropAnimationSideEffects
+  defaultDropAnimationSideEffects,
+  closestCorners
 } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
 import { useEffect, useState } from 'react'
@@ -57,14 +58,14 @@ function BoardContent({ board }) {
     //lieu cho cards hoan chinh truoc roi moi tao ra cardOrderIds moi.
     return orderedColumns.find(column => column?.cards?.map(card => card._id)?.includes(cardId))
   }
-
+  //Khi bat dau keo 1 phan tu
   const handleDragStart = (event) => {
     // console.log(event)
     setActiveDragItemId(event?.active?.id)
     setActiveDragItemType(event?.active?.data?.current?.columnId ? ACTIVE_DRAG_ITEM_TYPE.CARD : ACTIVE_DRAG_ITEM_TYPE.COLUMN)
     setActiveDragItemData(event?.active?.data?.current)
   }
-  //Qua trinh keo mot phan tu
+  //Qua trinh keo 1 phan tu
   const handleDragOver = (event) => {
 
     //Khong lam gi them neu dang keo Column
@@ -135,7 +136,7 @@ function BoardContent({ board }) {
       })
     }
   }
-
+  //Khi ket thuc hanh dong keo 1 phan tu => hanh dong tha
   const handleDragEnd = (event) => {
     // console.log('handleDragEnd:', event)
 
@@ -181,7 +182,10 @@ function BoardContent({ board }) {
 
   return (
     <DndContext
+    //Cam? bien' (video 30 tqdev)
       sensors={sensors}
+      //Thuat toan phat hien va cham (neu ko co thi card vs cover lon khong the keo qua Column duoc vi luc nay no dang bi conflict giua card vs colum), chung ta se dung closestCorners thay vi closestCenters
+      collisionDetection={closestCorners}
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
