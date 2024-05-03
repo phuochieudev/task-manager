@@ -16,6 +16,7 @@ function Card({ card }) {
     id: card._id,
     data: { ...card }
   })
+
   const dndKitCardStyle = {
     touchAction: 'none', //Danh cho sensor default dang PointerSensor
     transform: CSS.Translate.toString(transform),
@@ -27,13 +28,15 @@ function Card({ card }) {
   const shouldShowCardActions = () => {
     return !!card?.memberIds?.length || !!card?.comments?.length || !!card?.attachments?.length
   }
+
   return (
     <MuiCard
       ref={setNodeRef} style={dndKitCardStyle} {...attributes} {...listeners}
       sx={{
         cursor: 'pointer',
         boxShadow: '0 1px 1px rgba(0, 0, 0, 0.2)',
-        overflow: 'unset'
+        overflow: 'unset',
+        display: card?.FE_PlaceholderCard ? 'none' : 'block'
       }}>
       {card?.cover && <CardMedia sx={{ height: 140 }} image={card?.cover}/>}
       <CardContent sx={{ p: 1.5, '&:last-child': { p: 1.5 } }}>
