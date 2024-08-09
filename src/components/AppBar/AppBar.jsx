@@ -20,6 +20,7 @@ import AddIcon from '@mui/icons-material/Add'
 import InputAdornment from '@mui/material/InputAdornment'
 import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
+
 function AppBar() {
   const [searchValue, setSearchValue] = useState('')
   return (
@@ -73,11 +74,13 @@ function AppBar() {
                   <SearchIcon sx={{ color: 'white' }}/>
                 </InputAdornment>),
               endAdornment: (
-                <CloseIcon
-                  fontSize="small"
-                  sx={{ color: searchValue ? 'white' : 'transparent', cursor: 'pointer' }}
-                  onClick={() => setSearchValue('')}
-                />
+                <InputAdornment position="end">
+                  <CloseIcon
+                    fontSize="small"
+                    sx={{ color: searchValue ? 'white' : 'transparent', cursor: 'pointer' }}
+                    onClick={() => setSearchValue('')}
+                  />
+                </InputAdornment>
               )
             }
           }
