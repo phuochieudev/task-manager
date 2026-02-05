@@ -17,6 +17,7 @@ const CARD_COLLECTION_SCHEMA = Joi.object({
   updatedAt: Joi.date().timestamp('javascript').default(null),
   _destroy: Joi.boolean().default(false)
 })
+
 const validateBeforeCreate = async (data) => {
   return await CARD_COLLECTION_SCHEMA.validateAsync(data, { abortEarly: false })
 }
@@ -24,7 +25,7 @@ const validateBeforeCreate = async (data) => {
 const createNew = async (data) => {
   try {
     const validData = await validateBeforeCreate(data)
-    //Bien doi 1 so du lieu lien quan den ObjectId
+
     const newCardToAdd = {
       ...validData,
       boardId: new ObjectId(validData.boardId),
@@ -32,15 +33,22 @@ const createNew = async (data) => {
     }
 
     const createdCard = await GET_DB().collection(CARD_COLLECTION_NAME).insertOne(newCardToAdd)
+
     return createdCard
-  } catch (error) {throw new Error(error)}
+  } catch (error) {
+    throw new Error(error)
+  }
 }
+
 const findOneById = async (id) => {
   try {
     const result = await GET_DB().collection(CARD_COLLECTION_NAME).findOne({ _id: new ObjectId(id) })
     return result
-  } catch (error) {throw new Error(error)}
+  } catch (error) {
+    throw new Error(error)
+  }
 }
+
 export const cardModel = {
   CARD_COLLECTION_NAME,
   CARD_COLLECTION_SCHEMA,

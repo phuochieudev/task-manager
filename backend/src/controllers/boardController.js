@@ -12,16 +12,14 @@ const createNew = async (req, res, next) => {
     // console.log('req.jwtDecoded:', req.jwtDecoded)
 
     // throw new Error('phuochieudev test')
-    //Điều hướng dữ liệu sang tần Service
     const createdBoard = await boardService.createNew(req.body)
 
-    // throw new ApiError(StatusCodes.BAD_GATEWAY, 'Test error')
-    //Có kết quả thì trả về phía client
     res.status(StatusCodes.CREATED).json(createdBoard)
   } catch (error) {
     next(error)
   }
 }
+
 const getDetails = async (req, res, next) => {
   try {
     const boardId = req.params.id
