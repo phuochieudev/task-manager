@@ -29,7 +29,7 @@ const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: 'ACTIVE_DRAG_ITEM_TYPE_COLUMN',
   CARD: 'ACTIVE_DRAG_ITEM_TYPE_CARD'
 }
-function BoardContent({ board }) {
+function BoardContent({ board, createNewColumn, createNewCard }) {
 
   //Yeu cau di chuyen chuot 10px thi moi kich hoat event (fix truong hop click bi goi event)
   //Neu dung pointerSensor mac dinh thi phai phai ket hop thuoc tinh CSS touch-action: none o nhung phan tu keo tha
@@ -337,7 +337,11 @@ function BoardContent({ board }) {
         display: 'flex',
         p: '10px 0'
       }}>
-        <ListColumns columns={orderedColumns}/>
+        <ListColumns
+          columns={orderedColumns}
+          createNewColumn={createNewColumn}
+          createNewCard={createNewCard}
+        />
         <DragOverlay dropAnimation={dropAnimation}>
           {!activeDragItemType && null}
           {(activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN ) && <Column column={activeDragItemData}/>}
