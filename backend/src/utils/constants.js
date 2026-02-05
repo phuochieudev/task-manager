@@ -1,4 +1,4 @@
-//Nhung domain duoc phep truy cap vao tai nguyen cua Server
+//Domain allowed to access our back-end server
 export const WHITELIST_DOMAINS = [
   'http://localhost:5173'
 ]

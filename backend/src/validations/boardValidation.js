@@ -17,9 +17,7 @@ const createNew = async (req, res, next) => {
     type: Joi.string().valid(BOARD_TYPES.PUBLIC, BOARD_TYPES.PRIVATE).required()
   })
   try {
-    //Chỉ định abortEarly: false để trường hợp có nhiều lỗi validation thì trả về tất cả lỗi
     await correctCondition.validateAsync(req.body, { abortEarly: false })
-    //Validate dữ liệu xong, hợp lệ thì cho request đi tiếp sang Controller
     next()
   } catch (error) {
     // const errorMessage = new Error(error).message

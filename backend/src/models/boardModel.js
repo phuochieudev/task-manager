@@ -9,6 +9,7 @@ import { cardModel } from '~/models/cardModel'
 
 //Define Collection (Name & Schema)
 const BOARD_COLLECTION_NAME = 'boards'
+
 const BOARD_COLLECTION_SCHEMA = Joi.object({
   title: Joi.string().required().min(3).max(50).trim().strict(),
   slug: Joi.string().required().min(3).trim().strict(),
@@ -36,12 +37,14 @@ const createNew = async (data) => {
     return createdBoard
   } catch (error) {throw new Error(error)}
 }
+
 const findOneById = async (id) => {
   try {
     const result = await GET_DB().collection(BOARD_COLLECTION_NAME).findOne({ _id: new ObjectId(id) })
     return result
   } catch (error) {throw new Error(error)}
 }
+
 const getDetails = async (id) => {
   try {
     // const result = await GET_DB().collection(BOARD_COLLECTION_NAME).findOne({ _id: new ObjectId(id) })
@@ -63,11 +66,14 @@ const getDetails = async (id) => {
         as: 'cards'
       } }
     ]).toArray()
+
     return result[0] || null
-  } catch (error) {throw new Error(error)}
+  } catch (error)
+  {
+    throw new Error(error)
+  }
 }
 
-//Nhiem vu cua function nay la push mot cai gia tri columnId vao cuoi mang columnOrderIds
 const pushColumnOrderIds = async (column) => {
   try {
     const result = await GET_DB().collection(BOARD_COLLECTION_NAME).findOneAndUpdate(
